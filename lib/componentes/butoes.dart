@@ -25,7 +25,6 @@ class ModeloButao extends StatelessWidget {
     return Container(
       height: 50,
       child: MaterialButton(
-        disabledColor: Colors.black54,
         child: icone == null
             ? Text(
                 tituloButao!,
@@ -46,7 +45,7 @@ class ModeloButao extends StatelessWidget {
                   )
                 ],
               ),
-        color: corButao ?? null,
+        color: butaoHabilitado == true ? corButao : Colors.red.withOpacity(.2),
         shape: RoundedRectangleBorder(
           borderRadius:
               new BorderRadius.circular(butaoNaoArredondado == false ? 0 : 20),

@@ -1,26 +1,27 @@
 import 'package:get/get.dart';
 
-class ObservadorButoes extends GetxController{
+class ObservadorButoes extends GetxController {
   var butaoFinalizarCadastroInstituicao = false.obs;
-  
+
   var butaoInterruptorHabilitado = true.obs;
 
-  mudarValorFinalizarCadastroInstituicao(List<String> listaValoresFormulario, List<bool> listaValoresFormularioValidados){
+  mudarValorFinalizarCadastroInstituicao(List<String> listaValoresFormulario,
+      List<bool> listaValoresFormularioValidados) {
     bool contorlador = true;
     listaValoresFormularioValidados.forEach((element) {
-      if(element == false){
+      if (element == false) {
         contorlador = false;
       }
     });
     listaValoresFormulario.forEach((element) {
-      if(element.isEmpty){
+      if (element.isEmpty) {
         contorlador = false;
-      }
+      } 
     });
     butaoFinalizarCadastroInstituicao.value = contorlador;
   }
 
-  mudarValorButaoInterruptorHabilitado(bool novo){
+  mudarValorButaoInterruptorHabilitado(bool novo) {
     butaoInterruptorHabilitado.value = novo;
   }
 }

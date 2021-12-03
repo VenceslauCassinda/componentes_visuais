@@ -14,7 +14,7 @@ mostrarDialogoDeInformacao(String informacao,
     [bool? fechavel, Function? accaoNaNovaTentativa]) {
   fecharDialogoCasoAberto();
   Get.defaultDialog(
-      barrierDismissible: fechavel == null ? true : !fechavel,
+      barrierDismissible: fechavel ?? true,
       title: "",
       content: LayoutInformacao(informacao, accaoNaNovaTentativa));
 }

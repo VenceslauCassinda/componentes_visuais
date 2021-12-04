@@ -4,6 +4,7 @@ class ModeloItemLista extends StatelessWidget {
   bool? itemRemovivel = false;
   bool? itemAceitavel = false;
   bool? itemComentado = true;
+  bool? itemComMenu = false;
   String? tituloItem;
   String? subTituloItem;
   String? labelSubTituloItem;
@@ -12,6 +13,8 @@ class ModeloItemLista extends StatelessWidget {
   Function? metodoChamadoAoRemoverItem;
   Function? metodoChamadoAoAceitarItem;
   Color? corIcones;
+  List<String>? listaOpcoesMenu = [];
+  List<Function(String nomeOpcao)>? listaAccoesOpcoesMenu = [];
 
   ModeloItemLista(
       {this.tituloItem,
@@ -24,6 +27,9 @@ class ModeloItemLista extends StatelessWidget {
       this.metodoChamadoAoAceitarItem,
       this.metodoChamadoAoClicarLongoItem,
       this.labelSubTituloItem,
+      this.listaOpcoesMenu,
+      this.listaAccoesOpcoesMenu,
+      this.itemComMenu,
       this.corIcones}) {
     if (itemAceitavel == null) {
       itemAceitavel = false;

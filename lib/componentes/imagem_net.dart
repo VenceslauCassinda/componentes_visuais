@@ -6,11 +6,13 @@ class ImagemNet extends StatelessWidget {
     required this.link,
     this.tamanhoLabel,
     this.label,
+    required this.cantoArredondado,
   }) : super(key: key);
 
   final String? link;
   final String? label;
   double? tamanhoLabel;
+  double? cantoArredondado;
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +25,6 @@ class ImagemNet extends StatelessWidget {
     }
     var imagem = Image.network(
       link!,
-      fit: BoxFit.fill,
       loadingBuilder: (x, y, z) {
         if (z != null) {
           return Padding(
@@ -35,9 +36,11 @@ class ImagemNet extends StatelessWidget {
       },
     );
 
-    return ClipRRect(
-      child: imagem,
-      borderRadius: BorderRadius.circular(20),
+    return Container(
+      decoration: BoxDecoration(
+        image: DecorationImage(image: imagem.image, fit: BoxFit.fill),
+        borderRadius: BorderRadius.circular(cantoArredondado!)
+      ),
     );
   }
 }

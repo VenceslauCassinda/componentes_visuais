@@ -16,10 +16,7 @@ class ImagemNoCirculo extends StatelessWidget {
         height: MediaQuery.of(context).size.width * tamanhoCurva,
         width: MediaQuery.of(context).size.width * tamanhoCurva,
         child: CircleAvatar(
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: widgetImagem,
-          ),
+          child: widgetImagem,
           backgroundColor: Colors.grey,
         ));
   }

@@ -4,10 +4,14 @@ import 'package:get/get.dart';
 
 mostrarCarregandoDialogoDeInformacao(String informacao, [bool? fechavel]) {
   fecharDialogoCasoAberto();
-  Get.defaultDialog(
-      barrierDismissible: fechavel == null ? false : true,
-      title: "",
-      content: LayoutCarregandoCircrular(informacao));
+  try {
+    Get.defaultDialog(
+        barrierDismissible: fechavel == null ? false : true,
+        title: "",
+        content: LayoutCarregandoCircrular(informacao));
+  } catch (e) {
+    mostrarCarregandoDialogoDeInformacao(informacao, fechavel);
+  }
 }
 
 mostrarDialogoDeInformacao(String informacao,

@@ -1,4 +1,3 @@
-
 class ValidacaoCampos {
   bool validarEmail(String email) {
     return email.contains("@");
@@ -30,6 +29,15 @@ class ValidacaoCampos {
 
   bool validarGenerico() {
     return true;
+  }
+
+  bool validarNumero(String valor) {
+    try {
+      int.parse(valor);
+      return true;
+    } catch (e) {
+      return false;
+    }
   }
 }
 

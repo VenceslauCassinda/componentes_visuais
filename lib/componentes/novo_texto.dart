@@ -39,7 +39,7 @@ class LayoutNovoTexto extends StatelessWidget {
           areaOuCampoTexto == false
               ? CampoTexto(
                   textoPadrao: textoPadrao,
-                  dicaParaCampo: label ?? "Rota",
+                  dicaParaCampo: label ?? "",
                   tipoCampoTexto: tipoCampoTexto ?? TipoCampoTexto.nome,
                   icone: Icon(Icons.text_fields),
                   campoBordado: true,
@@ -51,7 +51,7 @@ class LayoutNovoTexto extends StatelessWidget {
                 )
               : AreaTexto(
                   textoPadrao: textoPadrao,
-                  dicaParaCampo: label ?? "Rota",
+                  dicaParaCampo: label ?? "",
                   tipoCampoTexto: tipoCampoTexto ?? TipoCampoTexto.nome,
                   icone: Icon(Icons.text_fields),
                   campoBordado: true,

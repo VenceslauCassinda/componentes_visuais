@@ -1,3 +1,4 @@
+import 'package:componentes_visuais/dialogo/toast.dart';
 import 'package:flutter/material.dart';
 
 class ModeloButao extends StatelessWidget {
@@ -45,13 +46,16 @@ class ModeloButao extends StatelessWidget {
                   )
                 ],
               ),
-        color: butaoHabilitado == true ? corButao : Colors.red.withOpacity(.2),
+        color: butaoHabilitado == true ? corButao : Colors.grey,
         shape: RoundedRectangleBorder(
           borderRadius:
               new BorderRadius.circular(butaoNaoArredondado == false ? 0 : 20),
         ),
-        onPressed:
-            butaoHabilitado == false ? null : () => metodoChamadoNoClique!(),
+        onPressed: butaoHabilitado == false
+            ? () {
+                mostrarToast("Preencha os campos necessários!");
+              }
+            : () => metodoChamadoNoClique!(),
         onLongPress: () {
           if (metodoChamadoNoLongoClique != null) {
             metodoChamadoNoLongoClique!();

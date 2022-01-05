@@ -38,6 +38,7 @@ class LayoutNovoTexto extends StatelessWidget {
         children: [
           areaOuCampoTexto == false
               ? CampoTexto(
+                context: context,
                   textoPadrao: textoPadrao,
                   dicaParaCampo: label ?? "",
                   tipoCampoTexto: tipoCampoTexto ?? TipoCampoTexto.nome,

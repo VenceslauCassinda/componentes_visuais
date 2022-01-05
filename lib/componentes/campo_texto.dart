@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'validadores/validadcao_campos.dart';
 
 class CampoTexto extends StatelessWidget {
+  BuildContext context;
   Function? metodoChamadoNaInsersao;
   String? dicaParaCampo;
   String? textoPadrao;
@@ -11,10 +12,17 @@ class CampoTexto extends StatelessWidget {
   bool? campoBordado = false;
   bool? campoNaoEditavel = false;
   Icon? icone;
+  bool? autoFoco;
+  Function? accaoAoTocarNoCampo;
+  Function? accaoAoTerminarInsercao;
   CampoTexto(
       {this.icone,
       this.campoNaoEditavel,
+      required this.context,
+      this.accaoAoTocarNoCampo,
+      this.accaoAoTerminarInsercao,
       this.tipoCampoTexto,
+      this.autoFoco,
       this.campoBordado,
       this.metodoChamadoNaInsersao,
       this.dicaParaCampo,
@@ -32,6 +40,17 @@ class CampoTexto extends StatelessWidget {
           : BoxDecoration(),
       child: Center(
         child: TextFormField(
+          onFieldSubmitted: (valor) {
+            if (accaoAoTerminarInsercao != null) {
+              accaoAoTerminarInsercao!();
+            }
+          },
+          onTap: () {
+            if (accaoAoTocarNoCampo != null) {
+              accaoAoTocarNoCampo!();
+            }
+          },
+          autofocus: autoFoco ?? false,
           cursorColor: Colors.black,
           keyboardType: tipoCampoTexto == null
               ? TextInputType.name

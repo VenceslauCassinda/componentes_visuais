@@ -3,11 +3,13 @@ import 'package:flutter/material.dart';
 import 'butoes.dart';
 
 class LayoutConfirmacaoAccao extends StatelessWidget {
-  Function? accaoAoConfirmar;
-  Function? accaoAoCancelar;
-  late String pergunta;
-  LayoutConfirmacaoAccao(this.pergunta,
-      {this.accaoAoConfirmar, this.accaoAoCancelar});
+  final Function accaoAoConfirmar;
+  final Function accaoAoCancelar;
+  final String pergunta;
+  LayoutConfirmacaoAccao(
+      {required this.pergunta,
+      required this.accaoAoConfirmar,
+      required this.accaoAoCancelar});
 
   @override
   Widget build(BuildContext context) {

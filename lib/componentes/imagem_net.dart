@@ -26,21 +26,23 @@ class ImagemNet extends StatelessWidget {
     var imagem = Image.network(
       link!,
       loadingBuilder: (x, y, z) {
-        if (z != null) {
-          return Padding(
-            padding: const EdgeInsets.all(40),
-            child: CircularProgressIndicator(),
-          );
+        if (z == null) {
+          return y;
         }
-        return y;
+        return Center(
+          child: CircularProgressIndicator(
+            value: z.expectedTotalBytes != null
+                ? z.cumulativeBytesLoaded / z.expectedTotalBytes!
+                : null,
+          ),
+        );
       },
     );
 
     return Container(
       decoration: BoxDecoration(
-        image: DecorationImage(image: imagem.image, fit: BoxFit.fill),
-        borderRadius: BorderRadius.circular(cantoArredondado!)
-      ),
+          image: DecorationImage(image: imagem.image, fit: BoxFit.fill),
+          borderRadius: BorderRadius.circular(cantoArredondado!)),
     );
   }
 }

@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 
 class ObservadorCampoTexto extends GetxController {
   var valorEmailValido = true.obs;
+  var valorNumeroTelefoneValido = true.obs;
   var valorNumeroValido = true.obs;
   var valorPalavraPasseValido = true.obs;
   var valorNomeValido = true.obs;
@@ -22,6 +23,9 @@ class ObservadorCampoTexto extends GetxController {
       valorNomeValido.value = _validacaoCampos.validarNome(valor);
     } else if (tipoCampoTexto == TipoCampoTexto.numero) {
       valorNumeroValido.value = _validacaoCampos.validarNumero(valor);
+    } else if (tipoCampoTexto == TipoCampoTexto.numeroTelefone) {
+      valorNumeroTelefoneValido.value =
+          _validacaoCampos.validarNumeroTelefone(valor);
     } else {
       valorNomeValido.value = true;
     }
@@ -42,6 +46,8 @@ class ObservadorCampoTexto extends GetxController {
       valorNomeValido.value = true;
     } else if (tipoCampoTexto == TipoCampoTexto.numero) {
       valorNumeroValido.value = true;
+    } else if (tipoCampoTexto == TipoCampoTexto.numeroTelefone) {
+      valorNumeroTelefoneValido.value = true;
     }
   }
 }

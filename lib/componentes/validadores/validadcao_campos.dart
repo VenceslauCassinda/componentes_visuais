@@ -39,6 +39,15 @@ class ValidacaoCampos {
       return false;
     }
   }
+
+  bool validarNumeroTelefone(String valor) {
+    try {
+      int.parse(valor);
+      return valor.length == 9;
+    } catch (e) {
+      return false;
+    }
+  }
 }
 
 enum TipoCampoTexto {
@@ -46,6 +55,7 @@ enum TipoCampoTexto {
   nome,
   email,
   numero,
+  numeroTelefone,
   palavra_passe,
   alteracao_palavra_passe
 }

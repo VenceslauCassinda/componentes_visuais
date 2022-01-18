@@ -1,16 +1,22 @@
 import 'package:componentes_visuais/layouts/layout_carregando_circualr.dart';
 import 'package:componentes_visuais/layouts/layout_informacao.dart';
 import 'package:get/get.dart';
+import 'package:flutter/material.dart';
 
-mostrarCarregandoDialogoDeInformacao(String informacao, [bool? fechavel]) {
+mostrarCarregandoDialogoDeInformacao(String informacao,
+    {bool? fechavel, Color? cor}) {
   fecharDialogoCasoAberto();
   try {
     Get.defaultDialog(
         barrierDismissible: fechavel == null ? false : true,
         title: "",
-        content: LayoutCarregandoCircrular(informacao));
+        content: LayoutCarregandoCircrular(
+          informacao,
+          cor: cor,
+        ));
   } catch (e) {
-    mostrarCarregandoDialogoDeInformacao(informacao, fechavel);
+    mostrarCarregandoDialogoDeInformacao(informacao,
+        fechavel: fechavel, cor: cor);
   }
 }
 
@@ -20,7 +26,10 @@ mostrarDialogoDeInformacao(String informacao,
   Get.defaultDialog(
       barrierDismissible: fechavel ?? true,
       title: "",
-      content: LayoutInformacao(informacao, accaoNaNovaTentativa));
+      content: LayoutInformacao(
+        informacao,
+        accaoNaNovaTentativa,
+      ));
 }
 
 void fecharDialogoCasoAberto() {
